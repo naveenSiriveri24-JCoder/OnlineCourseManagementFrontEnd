@@ -1,0 +1,518 @@
+.course-parent{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-card{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding:20px;
+    min-height: fit-content !important;
+}
+.course-card:hover{
+    border: 1px solid #f59432;
+    box-shadow: 0px 0px 10px rgb(79, 38, 17);
+    transform: translateY(0);
+    transform: scale(1.03);
+}
+.card-top {
+    display: flex;
+    justify-content: space-between; /* Pushes items to opposite ends */
+    align-items: center;            /* Vertically centers them */
+    width: 100%;
+    padding-bottom: 10px;
+   
+}
+
+.card-top p {
+    display: flex;
+    align-items: center;
+    gap: 8px;       /* Space between icon and text */
+     margin: 0;
+}
+
+.course-save-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    color: rgb(84, 83, 81);
+    background-color: rgb(203, 204, 204);
+    width: fit-content;
+    border-radius: 7px;
+    padding: 3px 7px;
+    gap: 2px;
+
+}
+
+.course-save-btn:hover{
+    color: black;
+}
+
+.card-middle{
+    display: flex;
+    flex-direction: column;
+}
+.card-middle h3{
+    font-size: 22px;
+    line-height: normal;
+    padding-bottom: 10px;
+}
+.card-middle p{
+    background-color: rgb(251, 238, 227);
+    width: fit-content;
+    border-radius: 10px;
+    padding: 0px 7px;
+    color: rgb(72, 72, 73);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.card-middle p:hover{
+    background-color: rgb(179, 142, 105);
+    transform: scale(1.03);
+}
+
+.card-bottom{
+    display: flex;
+    justify-content: space-between; /* Pushes items to opposite ends */
+    align-items: center;            /* Vertically centers them */
+    width: 100%;
+    padding: 10px 0px;
+    border-top: 2px solid #c0c1c2;
+}
+.card-bottom p{
+    display: flex;
+    align-items: center;
+    gap: 8px;       /* Space between icon and text */
+    background-color: rgb(250, 250, 250);
+    font-size: 18px;
+    font-weight: 600;
+    border: 1px solid whitesmoke;
+    border-radius: 8px;
+    padding: 5px 2px;
+    margin: 0;
+    
+}
+.course-btn-class{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: rgb(84, 83, 81);
+    gap: 12px;
+    
+}
+.course-update-btn{
+    cursor: pointer;
+    width: 50%;
+    height: 30px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 8px;
+    border:none;
+    background-color: #e8f0f1;
+    color: rgb(4, 160, 160);
+}
+.course-update-btn:hover{
+    background-color: #b5ebf3;
+    transform: scale(1.03);
+}
+
+.course-delete-btn{
+    width: 50%;
+    cursor: pointer;
+    height: 30px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 8px;
+    border:none;
+    background-color: #fdefee;
+    color: rgb(178, 47, 4);
+}
+.course-delete-btn:hover{
+    background-color: #fed6d4;
+    transform: scale(1.03);
+}
+
+.s-course-searchBar{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    border: 1px solid #f1d7c8;
+    border-radius: 10px;
+    padding: 0 12px;
+    background: white;
+    margin: 10px auto;
+}
+
+.s-course-searchBar input{
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.s-search-icon{
+    color: #f3914c;
+}
+
+
+.s-loading-container{
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background: #f5f7fb;
+}
+
+.s-loading-container h2{
+
+    color: #2f2c2b;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    letter-spacing: .5px;
+}
+
+.s-loader{
+
+    width: 60px;
+
+    height: 60px;
+
+    border: 6px solid #fdd6b9;
+
+    border-top: 6px solid #ec6008;
+
+    border-radius: 50%;
+
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin{
+
+    from{
+
+        transform: rotate(0deg);
+    }
+
+    to{
+
+        transform: rotate(360deg);
+    }
+}
+
+.popup-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    backdrop-filter: blur(5px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.popup{
+    width:500px;
+    background:#fff;
+    border-radius:18px;
+    padding:35px;
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+    animation:popup .35s ease;
+}
+
+.popup h2{
+    text-align:center;
+    color:#272626;
+    font-size:40px;
+    margin-bottom:35px;
+}
+
+.input-group{
+    position:relative;
+    margin-bottom:22px;
+    width:100%;
+}
+
+.input-group input{
+    width:100%;
+    box-sizing:border-box;
+    padding:16px;
+    font-size:16px;
+    border:2px solid #d9d9d9;
+    border-radius:10px;
+    outline:none;
+    transition:.3s;
+    background:#fff;
+}
+
+.input-group input:focus{
+    border-color:#f2b07d;
+}
+
+.input-group label{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    background:#fff;
+    padding:0 6px;
+    color:#777;
+    transition:.25s;
+    pointer-events:none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label{
+    top:0;
+    font-size:13px;
+    color:#ac5502;
+    font-weight:600;
+}
+
+.popup-buttons{
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+    margin-top:30px;
+}
+
+.popup-buttons button{
+    padding:12px 28px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:17px;
+}
+
+.popup-buttons button:first-child{
+    background:#5a5958;
+    color:white;
+}
+.popup-buttons button:first-child:hover{
+    background-color: #0f0e0e;
+    transform: scale(1.03);
+}
+.popup-buttons button:last-child{
+    background:#e5e7eb;
+    
+}
+.popup-buttons button:last-child:hover{
+   background:#98999c; 
+   transform: scale(1.03);
+}
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #eeeeee 25%,
+        #f5f5f5 50%,
+        #eeeeee 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+
+.title {
+    height: 28px;
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.text {
+    height: 16px;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.button {
+    height: 40px;
+    width: 120px;
+    margin-top: 20px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Overlay */
+
+.cs-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeIn .25s ease;
+}
+
+/* Popup */
+
+.cs-delete-popup {
+    position: relative;
+    width: 420px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 20px 45px rgba(0,0,0,.25);
+    animation: popup .3s ease;
+}
+
+/* Delete Icon */
+
+.cs-delete-icon {
+    width: 90px;
+    height: 90px;
+    margin: auto;
+    border-radius: 50%;
+    background: #ffe5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aa0202;
+    font-size: 40px;
+}
+
+.cs-delete-popup h2 {
+    margin-top: 22px;
+    color: #222;
+}
+
+.cs-delete-popup p {
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.cs-delete-popup p strong{
+    color: #992701;
+}
+
+.cs-warning {
+    color: #c90202;
+    font-weight:600;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.cs-popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.cs-cancel-btn,
+.cs-delete-btn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .25s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cs-cancel-btn {
+    background: #454546;
+    color: #faf7f7;
+    font-weight: 600;
+}
+
+.cs-cancel-btn:hover {
+    background: #111111;
+}
+
+.cs-delete-btn {
+    color: rgb(172, 1, 1);
+    font-weight: 600;
+}
+
+.cs-delete-btn:hover {
+    background: #fa9595;
+}
+
+.cs-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.cs-close-btn:hover {
+    color: #dc2626;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

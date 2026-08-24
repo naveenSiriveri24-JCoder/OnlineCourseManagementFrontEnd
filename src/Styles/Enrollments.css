@@ -1,0 +1,771 @@
+.enrollment-page{
+    min-height:100vh;
+    background:#f4f7fb;
+    padding:40px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.page-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.page-header h1{
+    font-size:2.2rem;
+    color:#1f2937;
+    margin-bottom:8px;
+}
+
+.page-header p{
+    color:#6b7280;
+    font-size:1rem;
+}
+
+.enrollment-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.enrollment-card{
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:all .3s ease;
+    border-top:5px solid #1c6082;
+}
+
+.enrollment-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,0.15);
+}
+
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.card-header h2{
+    margin:0;
+    color:#1e3a8a;
+    font-size:1.35rem;
+}
+
+.status-badge{
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:.8rem;
+    font-weight:bold;
+}
+
+.active{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.inactive{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+.card-body{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ececec;
+    padding-bottom:10px;
+}
+
+.info-row:last-child{
+    border-bottom:none;
+}
+
+.info-row span{
+    color:#6b7280;
+}
+
+.info-row strong{
+    color:#111827;
+}
+
+@media(max-width:768px){
+
+    .enrollment-page{
+        padding:20px;
+    }
+
+    .page-header h1{
+        font-size:1.8rem;
+    }
+
+}
+
+.back-button{
+    border: none;
+
+    background: #076591;
+
+    color: rgb(187, 199, 246);
+
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: bolder;
+
+    transition: all 0.3s ease;
+
+    margin-right: 10px; 
+
+    position: absolute;
+
+    left: 3%;
+   
+}
+
+.back-button:hover{
+    transform: scale(1.03);
+}
+
+.loading-container{
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background: #f5f7fb;
+}
+
+.loading-container h2{
+
+    color: #2563eb;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    letter-spacing: .5px;
+}
+
+.loader{
+
+    width: 60px;
+
+    height: 60px;
+
+    border: 6px solid #dbeafe;
+
+    border-top: 6px solid #2563eb;
+
+    border-radius: 50%;
+
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin{
+
+    from{
+
+        transform: rotate(0deg);
+    }
+
+    to{
+
+        transform: rotate(360deg);
+    }
+}
+
+/* Overlay */
+.enr-popup-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeIn .25s ease;
+}
+
+/* Popup */
+.enr-delete-popup{
+    position: relative;
+    width: 420px;
+    max-width: 90%;
+    background: #fff;
+    border-radius: 24px;
+    padding: 35px 30px;
+    text-align: center;
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.18),
+        0 8px 20px rgba(0,0,0,.08);
+    animation: popup .35s cubic-bezier(.22,1,.36,1);
+}
+
+/* Close Button */
+.enr-close-btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #555;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.enr-close-btn:hover{
+    background: #fee2e2;
+    color: #dc2626;
+    transform: rotate(90deg);
+}
+
+/* Delete Icon */
+.enr-delete-icon{
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #fdecec;
+    color: #dc2626;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+.enr-delete-popup h2{
+    color: #7f1d1d;
+    margin-bottom: 12px;
+    font-size: 28px;
+}
+
+.enr-delete-popup p{
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.enr-delete-popup strong{
+    color: #b91c1c;
+}
+.enr-delete-popup strong span{
+    color: rgb(119, 117, 117);
+}
+/* Warning */
+.enr-warning{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    color: #a13a11;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+.enr-warning span{
+    color: rgb(154, 1, 1);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+/* Buttons */
+.enr-popup-buttons{
+    display: flex;
+    gap: 15px;
+}
+
+.enr-popup-buttons button{
+    flex: 1;
+    border: none;
+    padding: 13px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+/* Cancel */
+.enr-cancel-btn{
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.enr-cancel-btn:hover{
+    background: #cfcfd2;
+    transform: translateY(-2px);
+}
+
+/* Delete */
+.enr-delete-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: #fbdada;
+    color: white;
+    color: rgb(163, 3, 3);
+}
+
+.enr-delete-btn:hover{
+    background: #faabab;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(220,38,38,.35);
+}
+
+/* Animations */
+@keyframes popup{
+    from{
+        opacity:0;
+        transform: translateY(-20px) scale(.9);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+/* ================================
+   ENROLLMENT EXTEND POPUP
+================================ */
+
+.enr-ext-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    animation: enrOverlayFade 0.25s ease-out;
+}
+
+
+/* ================================
+   POPUP
+================================ */
+
+.enr-ext-popup {
+    position: relative;
+
+    width: min(450px, 90%);
+    padding: 32px 30px 28px;
+    border-radius: 18px;
+
+    background-color: rgb(253, 253, 253);
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.75),
+        0 0 35px rgba(255, 102, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    animation: enrPopupOpen 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ================================
+   CLOSE BUTTON
+================================ */
+
+.enr-ext-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: 1px solid rgb(251, 221, 221);
+    background:none;
+    color: #999;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.enr-ext-close-btn:hover {
+    background: #fbf3f3;
+    color: #da0303;
+
+    transform: rotate(360deg) scale(1.05);
+}
+
+
+/* ================================
+   ICON
+================================ */
+
+.enr-ext-extend-icon {
+    width: 68px;
+    height: 68px;
+
+    margin: 4px auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        145deg,
+        #ff7900,
+        #d94f00
+    );
+
+    color: #ffffff;
+
+    font-size: 31px;
+
+    box-shadow:
+        0 8px 25px rgba(255, 102, 0, 0.28),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+
+    animation: enrIconPulse 2.5s ease-in-out infinite;
+}
+
+
+/* ================================
+   HEADING
+================================ */
+
+.enr-ext-popup h2 {
+    margin: 0 0 12px;
+
+    text-align: center;
+
+    color: #ac3e02;
+
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
+
+
+/* ================================
+   DESCRIPTION
+================================ */
+
+.enr-ext-popup p {
+    margin: 0 auto 22px;
+
+    max-width: 360px;
+
+    text-align: center;
+
+    color: #a8a8a8;
+
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+.enr-ext-popup p strong {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #011b3f;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.enr-ext-popup p strong span {
+    color: #858585;
+    font-weight: 600;
+}
+
+
+/* ================================
+   INPUT
+================================ */
+.enr-ext-input-parent{
+    display: flex;
+    justify-content: center;
+}
+.enr-ext-input {
+    width: 60%;
+    box-sizing: border-box;
+
+    height: 40px;
+
+    padding: 0 16px;
+
+    border: 1px solid #cdc8c6;
+    border-radius: 10px;
+
+    outline: none;
+
+    color: #541802;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+
+}
+
+.enr-ext-input::placeholder {
+    color: #686868;
+    font-weight: 350;
+}
+
+.enr-ext-input:hover {
+    border-color: #555555;
+}
+
+.enr-ext-input:focus {
+    background: #faf5f2;
+
+    border-color: #ff6a00;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 106, 0, 0.12),
+        0 0 18px rgba(255, 106, 0, 0.08);
+}
+
+
+/* Remove number input arrows */
+
+.enr-ext-input::-webkit-inner-spin-button,
+.enr-ext-input::-webkit-outer-spin-button {
+    opacity: 0.6;
+}
+
+
+/* ================================
+   BUTTON CONTAINER
+================================ */
+
+.enr-ext-popup-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+    
+}
+
+
+/* ================================
+   COMMON BUTTON
+================================ */
+
+.enr-ext-popup-buttons button {
+    height: 46px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* ================================
+   CANCEL BUTTON
+================================ */
+
+.enr-ext-cancel-btn {
+    flex: 1;
+    background: #d0d0cf;
+    border: none;
+    color: #110400;
+}
+
+.enr-ext-cancel-btn:hover {
+    background: #878686;
+    color: #ffffff;
+    transform:  scale(1.03);
+        box-shadow:
+        0 10px 28px rgba(62, 61, 61, 0.38);
+}
+
+
+/* ================================
+   EXTEND BUTTON
+================================ */
+
+.enr-ext-extend-btn {
+    flex: 1.3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    font-size: 23px;
+    background: linear-gradient(
+        135deg,
+        #faa073,
+        #f56c22
+    );
+
+    color: #ffffff;
+
+}
+
+.enr-ext-extend-btn:hover {
+    background: linear-gradient(
+        135deg,
+        #ff8a1a,
+        #f05b00
+    );
+
+    transform:  scale(1.03);
+
+    box-shadow:
+        0 10px 28px rgba(255, 95, 0, 0.38);
+}
+
+.enr-ext-extend-btn:active,
+.enr-ext-cancel-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+.enr-ext-extend-icon-btn{
+   font-size: 20px;
+}
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes enrOverlayFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes enrPopupOpen {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes enrIconPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 8px 25px rgba(255, 102, 0, 0.28),
+            inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 8px 32px rgba(255, 102, 0, 0.45),
+            0 0 12px rgba(255, 102, 0, 0.15),
+            inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 500px) {
+
+    .enr-ext-popup {
+        width: calc(100% - 32px);
+
+        padding: 28px 22px 24px;
+
+        border-radius: 16px;
+    }
+
+    .enr-ext-popup h2 {
+        font-size: 20px;
+    }
+
+    .enr-ext-popup p {
+        font-size: 13px;
+    }
+
+    .enr-ext-popup-buttons {
+        flex-direction: column;
+    }
+
+    .enr-ext-cancel-btn,
+    .enr-ext-extend-btn {
+        flex: none;
+        width: 100%;
+    }
+}

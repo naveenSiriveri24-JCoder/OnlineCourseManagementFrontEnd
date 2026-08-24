@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Inter", sans-serif;
+}
+
+/* ===========================
+   Students Page
+=========================== */
+
+.students-container{
+    width:95%;
+    max-width:1400px;
+    margin:35px auto;
+}
+
+.students-title{
+    font-size:30px;
+    font-weight:700;
+    color:#1f2937;
+    margin-bottom:25px;
+}
+
+/* ===========================
+   Table
+=========================== */
+
+.students-table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:14px;
+    
+    box-shadow:
+        0 8px 30px rgba(15,23,42,.08),
+        0 2px 8px rgba(15,23,42,.05);
+}
+
+/* Header */
+
+.students-table thead{
+    background:linear-gradient(90deg,#373635,#908c8a);
+    color:#fff;
+}
+
+.students-table th{
+    padding:18px 22px;
+    text-align:left;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:.4px;
+    text-transform:uppercase;
+}
+
+/* Body */
+
+.students-table td{
+    padding:18px 22px;
+    color:#374151;
+    font-size:15px;
+    border-bottom:1px solid #edf2f7;
+}
+
+/* Alternate Row */
+
+.students-table tbody tr:nth-child(even){
+    background:#f8fafc;
+}
+
+/* Hover */
+
+.students-table tbody tr{
+    transition:.25s ease;
+}
+
+.students-table tbody tr:hover{
+    background:#fbf3f0;
+    transform:scale(1.001);
+}
+
+/* Last Row */
+
+.students-table tbody tr:last-child td{
+    border-bottom:none;
+}
+
+/* Rounded Corners */
+
+.students-table thead tr th:first-child{
+    border-top-left-radius:14px;
+}
+
+.students-table thead tr th:last-child{
+    border-top-right-radius:14px;
+}
+
+/* Scroll on small screens */
+
+.table-wrapper{
+    overflow-x:auto;
+    border-radius:14px;
+}
+
+/* Nice Scrollbar */
+
+.table-wrapper::-webkit-scrollbar{
+    height:8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:20px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover{
+    background:#94a3b8;
+}
+
+/* Action Buttons Container */
+
+.action-btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+}
+
+/* Common Button Style */
+
+.action-btn button{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-size:20px;
+    transition:all .25s ease;
+    
+}
+
+/* Edit Button */
+
+.edit-btn{
+    background:#eff6ff;
+    
+}
+
+.edit-btn:hover{
+    background:#7ea5f8;
+    color:#fff;
+    transform:translateY(-0.5px);
+    box-shadow:0 8px 18px rgba(37,99,235,.25);
+}
+
+/* Delete Button */
+
+.delete-btn{
+    background:#fef2f2;
+   
+}
+
+.delete-btn:hover{
+    background:#ff8f8f;
+    color:#fff;
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(220,38,38,.25);
+}
+
+/* Button Click */
+
+.action-btn button:active{
+    transform:scale(.95);
+}
+
+/* Table Header icons*/
+/* Header */
+
+
+
+.students-table th{
+    padding:18px 20px;
+    text-align:left;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+}
+
+/* Icon + Text */
+
+.table-heading{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.header-icon{
+    font-size:18px;
+    color:#dbeafe;
+    transition:.25s;
+}
+
+.students-table th:hover .header-icon{
+    transform:scale(1.15);
+    color:#fff;
+}

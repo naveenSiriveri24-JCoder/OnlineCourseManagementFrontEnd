@@ -1,0 +1,252 @@
+/* Full Screen Background */
+
+.signup-container {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #ef9c4f,
+        #6a8dee,
+        #74f65d
+    );
+
+    font-family: "Segoe UI", sans-serif;
+
+    padding: 20px;
+}
+
+/* Signup Card */
+
+.signup-card {
+
+    width: 500px;
+    max-width: 95%;
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.25);
+
+    animation: slideUp 0.8s ease;
+}
+
+/* Heading */
+
+.signup-card h2 {
+
+    text-align: center;
+
+    color: white;
+
+    margin-bottom: 25px;
+
+    font-size: 32px;
+
+    font-weight: 700;
+}
+
+/* Form */
+
+.signup-card form {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+/* Inputs */
+
+.signup-card input[type="text"],
+.signup-card input[type="password"],
+.signup-card input[type="email"],
+.signup-card input[type="number"] {
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: rgba(255,255,255,0.18);
+
+    color: white;
+
+    font-size: 15px;
+
+    transition: all 0.3s ease;
+}
+
+.signup-card input::placeholder {
+
+    color: rgba(255,255,255,0.8);
+}
+
+.signup-card input:focus {
+
+    background: rgba(255,255,255,0.25);
+
+    transform: scale(1.02);
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,0.3);
+}
+
+/* Roles Section */
+
+.roles-section {
+
+    margin-top: 10px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.08);
+}
+
+.roles-section h4 {
+
+    color: white;
+
+    margin-bottom: 12px;
+}
+
+.roles-section label {
+
+    display: block;
+
+    color: white;
+
+    margin-bottom: 10px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.roles-section input[type="checkbox"] {
+
+    margin-right: 10px;
+
+    cursor: pointer;
+}
+
+/* Signup Button */
+
+.signup-card button[type="submit"] {
+
+    margin-top: 15px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    background: linear-gradient(
+        135deg,
+        #09cf8d,
+        #059669
+    );
+
+    transition: all 0.3s ease;
+}
+
+.signup-card button[type="submit"]:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(16,185,129,0.4);
+}
+
+/* Login Link */
+
+.href-login {
+
+    margin-top: 25px;
+
+    color: white;
+
+    font-size: 15px;
+}
+
+.href-login a {
+
+    color: #fbbf24;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+.href-login a:hover {
+
+    color: white;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.8);
+}
+
+/* Animation */
+
+@keyframes slideUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(50px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+
+    .signup-card {
+
+        width: 100%;
+
+        padding: 25px;
+    }
+
+    .signup-card h2 {
+
+        font-size: 26px;
+    }
+}

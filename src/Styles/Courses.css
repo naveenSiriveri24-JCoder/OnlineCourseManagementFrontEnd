@@ -1,0 +1,454 @@
+/* Page Background */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #f4f7fc;
+}
+
+/* Navbar */
+
+.navbar {
+    background: linear-gradient(
+        135deg,
+        #608def,
+        #6dd4e8,
+        #2599eb
+    );
+
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+}
+
+.navbar h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar div {
+    display: flex;
+    align-items: center;
+}
+
+/* Welcome Text */
+
+.navbar span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.enrollment-me{
+    border: none;
+
+    background: #076591;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+
+    margin-right: 10px; 
+
+    position: absolute;
+
+    right: 11%;
+}
+.enrollment-me:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+@media(max-width:768px){
+    .enrollment-me{
+        position: inherit;
+
+    }
+}
+
+/* Logout Button */
+
+.logout-btn {
+    border: none;
+
+    background: #076591;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+
+    margin-right: 10px;
+}
+
+.logout-btn:hover {
+    background: #910101;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+}
+
+/* Profile Button */
+
+.profile-info {
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eef0f2;
+}
+
+.profile-info img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* ---------- Main Container ---------- */
+
+.courses-container {
+    padding: 30px 40px 50px;
+    background: #f4f7fb;
+    min-height: 100vh;
+}
+
+/* ---------- Title ---------- */
+
+.courses-title {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+/* ---------- Cards Grid ---------- */
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 320px);
+    justify-content: center;
+    gap: 30px;
+}
+
+/* ---------- Card ---------- */
+
+.course-card {
+    width: 320px;
+    min-height: 300px;
+
+    background: #ffffff;
+    border-radius: 18px;
+
+    padding: 24px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 8px 24px rgba(15, 23, 42, 0.08);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+
+    animation: cardAppear .45s ease;
+}
+
+.course-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 35px rgba(37, 99, 235, .18);
+
+    border-color: #2563eb;
+}
+
+/* ---------- Heading ---------- */
+
+.course-card h2 {
+
+    color: #033e79;
+
+    margin-bottom: 18px;
+
+    font-size: 23px;
+
+    font-weight: 700;
+}
+
+/* ---------- Text ---------- */
+
+.course-card p {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #475569;
+
+    font-size: 15px;
+
+    margin-bottom: 14px;
+
+    line-height: 1.6;
+}
+
+.course-card p strong {
+
+    color: #1e293b;
+}
+
+/* ---------- Price ---------- */
+
+.course-price {
+
+    color: #16a34a !important;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-top: 18px;
+}
+
+/* ---------- Duration ---------- */
+
+.course-duration {
+
+    color: #0f766e !important;
+
+    font-weight: 600;
+}
+
+/* ---------- Button Section ---------- */
+
+.btn-class {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 22px;
+}
+
+.btn-class button {
+
+    flex: 1;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(135deg,#064a83,#1d4ed8);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all .3s ease;
+
+    box-shadow:
+        0 8px 18px rgba(37,99,235,.25);
+}
+
+.btn-class button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 25px rgba(37,99,235,.35);
+}
+
+.btn-class button:active{
+
+    transform: scale(.97);
+}
+
+/* ---------- Loading ---------- */
+
+.loading{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:100vh;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#2563eb;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes cardAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px) scale(.96);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+    }
+}
+
+.btn-class{
+    display: flex;
+   
+}
+
+.btn-class button{
+    padding: 8px;
+    margin-right: 30px;
+    gap: 10px;
+    border-radius: 5px;
+    background: #3e7592;
+    border: none;
+    color: #ececf0;
+    box-shadow: 0px 0px 6px rgb(127, 129, 134);
+    font-weight: bold;
+}
+
+.btn-class button:hover{
+     box-shadow: 2px 1px 8px rgb(57, 56, 55);
+     transform: scale(1.03);
+}
+
+.course-searchBar{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    border: 1px solid #caf8b8;
+    border-radius: 10px;
+    padding: 0 12px;
+    background: white;
+    margin: 10px auto;
+}
+
+.course-searchBar input{
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.search-icon{
+    color: #f5a870;
+}
+
+.loading-container{
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background: #f5f7fb;
+}
+
+.loading-container h2{
+
+    color: #2563eb;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    letter-spacing: .5px;
+}
+
+.loader{
+
+    width: 60px;
+
+    height: 60px;
+
+    border: 6px solid #dbeafe;
+
+    border-top: 6px solid #2563eb;
+
+    border-radius: 50%;
+
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin{
+
+    from{
+
+        transform: rotate(0deg);
+    }
+
+    to{
+
+        transform: rotate(360deg);
+    }
+}
