@@ -210,3 +210,181 @@
     transform:scale(1.15);
     color:#fff;
 }
+
+/* Overlay */
+.st-del-popup-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeIn .25s ease;
+}
+
+/* Popup */
+.st-delete-popup{
+    position: relative;
+    width: 420px;
+    max-width: 90%;
+    background: #fff;
+    border-radius: 24px;
+    padding: 35px 30px;
+    text-align: center;
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.18),
+        0 8px 20px rgba(0,0,0,.08);
+    animation: popup .35s cubic-bezier(.22,1,.36,1);
+}
+
+/* Close Button */
+.st-close-btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #555;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.st-close-btn:hover{
+    background: #fee2e2;
+    color: #dc2626;
+    transform: rotate(90deg);
+}
+
+/* Delete Icon */
+.st-delete-icon{
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #fdecec;
+    color: #dc2626;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+.st-delete-popup h2{
+    color: #7f1d1d;
+    margin-bottom: 12px;
+    font-size: 28px;
+}
+
+.st-delete-popup p{
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.st-delete-popup strong{
+    color: #b91c1c;
+}
+.st-delete-popup strong span{
+    color: rgb(119, 117, 117);
+}
+/* Warning */
+.st-warning{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    color: #a13a11;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+.st-warning span{
+    color: rgb(154, 1, 1);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+/* Buttons */
+.st-popup-buttons{
+    display: flex;
+    gap: 15px;
+}
+
+.st-popup-buttons button{
+    flex: 1;
+    border: none;
+    padding: 13px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+/* Cancel */
+.st-cancel-btn{
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.st-cancel-btn:hover{
+    background: #cfcfd2;
+    transform: translateY(-2px);
+}
+
+/* Delete */
+.st-delete-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: #fbdada;
+    color: white;
+    color: rgb(163, 3, 3);
+}
+
+.st-delete-btn:hover{
+    background: #faabab;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(220,38,38,.35);
+}
+
+/* Animations */
+@keyframes popup{
+    from{
+        opacity:0;
+        transform: translateY(-20px) scale(.9);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+}
