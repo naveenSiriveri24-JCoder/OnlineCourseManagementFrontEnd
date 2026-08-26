@@ -69,7 +69,11 @@ const handleDelete = async(studentId) => {
         await getAllStudentsList();
         alert("Student Deleted!");
     }catch(error){
-        alert(error);
+        if (error.response?.status === 409) {
+            alert(error.response.data.message);
+        }else {
+        alert("Something went wrong. Please try again.");
+        }
     }
 }
 

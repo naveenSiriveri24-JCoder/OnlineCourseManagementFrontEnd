@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const api = axios.create({
   baseURL: "http://localhost:8080",
   headers: {
@@ -35,21 +34,17 @@ api.interceptors.response.use(
       switch (error.response.status) {
 
         case 401:
-          console.error("Unauthorized");
-
+          const errorMessage = error.response.data?.message || "JWT token is expired or invalid.";
+          alert(errorMessage);
           localStorage.removeItem("token");
           localStorage.removeItem("profile");
-
-          window.location.href = "/login";
+          localStorage.removeItem("user");
+          localStorage.removeItem("Admin");
+          window.location.href = "/session_expire";
           break;
 
         case 403:
           console.error("Access Denied");
-          localStorage.removeItem("token");
-          localStorage.removeItem("profile");
-          localStorage.removeItem("user")
-          localStorage.removeItem("Admin")
-          window.location.href = "/session_expire";
           break;
 
         case 404:
