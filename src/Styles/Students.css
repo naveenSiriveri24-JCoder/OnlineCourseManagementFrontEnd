@@ -1,390 +1,975 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
+
 
 /* ===========================
    Students Page
 =========================== */
 
-.students-container{
-    width:95%;
-    max-width:1400px;
-    margin:35px auto;
+.students-container {
+
+    width: 95%;
+    max-width: 1400px;
+
+    margin: 35px auto 0;
+
+    /*
+     * Important:
+     * The container occupies the available
+     * screen height.
+     */
+    height: calc(100vh - 100px);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #fff;
 }
 
-.students-title{
-    font-size:30px;
-    font-weight:700;
-    color:#1f2937;
-    margin-bottom:25px;
+
+/* ===========================
+   Table Scroll Wrapper
+=========================== */
+
+.table-wrapper {
+
+    /*
+     * Takes all available space
+     * between top and pagination.
+     */
+    flex: 1 1 auto;
+
+    /*
+     * Very important for flexbox scrolling.
+     */
+    min-height: 0;
+
+    width: 100%;
+
+    overflow-y: auto;
+    overflow-x: auto;
+
+    border-radius: 14px;
 }
+
 
 /* ===========================
    Table
 =========================== */
 
-.students-table{
-    width:100%;
-    border-collapse:collapse;
-    background:#fff;
-    border-radius:14px;
-    
-    box-shadow:
-        0 8px 30px rgba(15,23,42,.08),
-        0 2px 8px rgba(15,23,42,.05);
-}
+.students-table {
 
-/* Header */
+    width: 100%;
 
-.students-table thead{
-    background:linear-gradient(90deg,#373635,#908c8a);
-    color:#fff;
-}
+    /*
+     * Better behavior with sticky headers.
+     */
+    border-collapse: separate;
+    border-spacing: 0;
 
-.students-table th{
-    padding:18px 22px;
-    text-align:left;
-    font-size:15px;
-    font-weight:600;
-    letter-spacing:.4px;
-    text-transform:uppercase;
-}
-
-/* Body */
-
-.students-table td{
-    padding:18px 22px;
-    color:#374151;
-    font-size:15px;
-    border-bottom:1px solid #edf2f7;
-}
-
-/* Alternate Row */
-
-.students-table tbody tr:nth-child(even){
-    background:#f8fafc;
-}
-
-/* Hover */
-
-.students-table tbody tr{
-    transition:.25s ease;
-}
-
-.students-table tbody tr:hover{
-    background:#fbf3f0;
-    transform:scale(1.001);
-}
-
-/* Last Row */
-
-.students-table tbody tr:last-child td{
-    border-bottom:none;
-}
-
-/* Rounded Corners */
-
-.students-table thead tr th:first-child{
-    border-top-left-radius:14px;
-}
-
-.students-table thead tr th:last-child{
-    border-top-right-radius:14px;
-}
-
-/* Scroll on small screens */
-
-.table-wrapper{
-    overflow-x:auto;
-    border-radius:14px;
-}
-
-/* Nice Scrollbar */
-
-.table-wrapper::-webkit-scrollbar{
-    height:8px;
-}
-
-.table-wrapper::-webkit-scrollbar-thumb{
-    background:#cbd5e1;
-    border-radius:20px;
-}
-
-.table-wrapper::-webkit-scrollbar-thumb:hover{
-    background:#94a3b8;
-}
-
-/* Action Buttons Container */
-
-.action-btn{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-}
-
-/* Common Button Style */
-
-.action-btn button{
-    width:40px;
-    height:40px;
-    border:none;
-    border-radius:10px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    font-size:20px;
-    transition:all .25s ease;
-    
-}
-
-/* Edit Button */
-
-.edit-btn{
-    background:#eff6ff;
-    
-}
-
-.edit-btn:hover{
-    background:#7ea5f8;
-    color:#fff;
-    transform:translateY(-0.5px);
-    box-shadow:0 8px 18px rgba(37,99,235,.25);
-}
-
-/* Delete Button */
-
-.delete-btn{
-    background:#fef2f2;
-   
-}
-
-.delete-btn:hover{
-    background:#ff8f8f;
-    color:#fff;
-    transform:translateY(-2px);
-    box-shadow:0 8px 18px rgba(220,38,38,.25);
-}
-
-/* Button Click */
-
-.action-btn button:active{
-    transform:scale(.95);
-}
-
-/* Table Header icons*/
-/* Header */
-
-
-
-.students-table th{
-    padding:18px 20px;
-    text-align:left;
-    font-size:14px;
-    font-weight:600;
-    letter-spacing:.5px;
-    text-transform:uppercase;
-}
-
-/* Icon + Text */
-
-.table-heading{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.header-icon{
-    font-size:18px;
-    color:#dbeafe;
-    transition:.25s;
-}
-
-.students-table th:hover .header-icon{
-    transform:scale(1.15);
-    color:#fff;
-}
-
-/* Overlay */
-.st-del-popup-overlay{
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(6px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    animation: fadeIn .25s ease;
-}
-
-/* Popup */
-.st-delete-popup{
-    position: relative;
-    width: 420px;
-    max-width: 90%;
     background: #fff;
-    border-radius: 24px;
-    padding: 35px 30px;
-    text-align: center;
+
     box-shadow:
-        0 25px 60px rgba(0,0,0,.18),
-        0 8px 20px rgba(0,0,0,.08);
-    animation: popup .35s cubic-bezier(.22,1,.36,1);
+        0 8px 30px rgba(15, 23, 42, .08),
+        0 2px 8px rgba(15, 23, 42, .05);
 }
 
-/* Close Button */
-.st-close-btn{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 36px;
-    height: 36px;
-    border: none;
-    border-radius: 50%;
-    background: #f3f4f6;
-    color: #555;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: .3s;
+
+/* ===========================
+   Header
+=========================== */
+
+.students-table thead {
+
+    color: #fff;
 }
 
-.st-close-btn:hover{
-    background: #fee2e2;
-    color: #dc2626;
-    transform: rotate(90deg);
-}
 
-/* Delete Icon */
-.st-delete-icon{
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 18px;
-    border-radius: 50%;
-    background: #fdecec;
-    color: #dc2626;
-    font-size: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: pulse 2s infinite;
-}
+/*
+ * Sticky header.
+ *
+ * Apply sticky to TH instead of THEAD.
+ */
 
-.st-delete-popup h2{
-    color: #7f1d1d;
-    margin-bottom: 12px;
-    font-size: 28px;
-}
+.students-table th {
 
-.st-delete-popup p{
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
+    position: sticky;
+    top: 0;
 
-.st-delete-popup strong{
-    color: #b91c1c;
-}
-.st-delete-popup strong span{
-    color: rgb(119, 117, 117);
-}
-/* Warning */
-.st-warning{
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 15px;
-    border-radius: 12px;
-    background: #fff7ed;
-    border: 1px solid #fed7aa;
-    color: #a13a11;
+    z-index: 10;
+
+    padding: 18px 20px;
+
+    text-align: left;
+
     font-size: 14px;
-    margin-bottom: 25px;
-}
-.st-warning span{
-    color: rgb(154, 1, 1);
-    font-size: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3px;
-}
-/* Buttons */
-.st-popup-buttons{
-    display: flex;
-    gap: 15px;
-}
 
-.st-popup-buttons button{
-    flex: 1;
-    border: none;
-    padding: 13px;
-    border-radius: 12px;
-    font-size: 15px;
     font-weight: 600;
-    cursor: pointer;
-    transition: .3s;
+
+    letter-spacing: .5px;
+
+    text-transform: uppercase;
+
+    color: #fff;
+
+    background-color:rgb(87, 85, 84);
+
 }
 
-/* Cancel */
-.st-cancel-btn{
-    background: #f3f4f6;
+
+/* ===========================
+   Body
+=========================== */
+
+.students-table td {
+
+    padding: 18px 22px;
+
     color: #374151;
+
+    font-size: 15px;
+
+    border-bottom: 1px solid #edf2f7;
 }
 
-.st-cancel-btn:hover{
-    background: #cfcfd2;
-    transform: translateY(-2px);
+
+/* ===========================
+   Alternate Row
+=========================== */
+
+.students-table tbody tr:nth-child(even) {
+
+    background: #f8fafc;
+
 }
 
-/* Delete */
-.st-delete-btn{
+
+/* ===========================
+   Hover
+=========================== */
+
+.students-table tbody tr {
+    transition: background 0.25s ease;
+}
+
+.students-table tbody tr:hover {
+    background: #fbf3f0;
+}
+
+
+/* ===========================
+   Last Row
+=========================== */
+
+.students-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+/* ===========================
+   Rounded Corners
+=========================== */
+
+.students-table thead tr th:first-child {
+
+    border-top-left-radius: 14px;
+
+}
+
+
+.students-table thead tr th:last-child {
+
+    border-top-right-radius: 14px;
+
+}
+
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+.table-wrapper::-webkit-scrollbar {
+
+    width: 8px;
+    height: 8px;
+
+}
+
+
+.table-wrapper::-webkit-scrollbar-thumb {
+
+    background: #cbd5e1;
+
+    border-radius: 20px;
+
+}
+
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+
+    background: #94a3b8;
+
+}
+
+
+/* ===========================
+   Action Buttons Container
+=========================== */
+
+.action-btn {
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
-    gap: 8px;
-    background: #fbdada;
-    color: white;
-    color: rgb(163, 3, 3);
+
+    gap: 12px;
+
 }
 
-.st-delete-btn:hover{
-    background: #faabab;
+
+/* ===========================
+   Common Button Style
+=========================== */
+
+.action-btn button {
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition: all .25s ease;
+
+}
+
+
+/* ===========================
+   Edit Button
+=========================== */
+
+.edit-btn {
+
+    background: #eff6ff;
+
+}
+
+
+.edit-btn:hover {
+
+    background: #7ea5f8;
+
+    color: #fff;
+
+    transform: translateY(-0.5px);
+
+    box-shadow:
+        0 8px 18px rgba(37, 99, 235, .25);
+
+}
+
+
+/* ===========================
+   Delete Button
+=========================== */
+
+.delete-btn {
+
+    background: #fef2f2;
+
+}
+
+
+.delete-btn:hover {
+
+    background: #ff8f8f;
+
+    color: #fff;
+
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(220,38,38,.35);
+
+    box-shadow:
+        0 8px 18px rgba(220, 38, 38, .25);
+
 }
 
-/* Animations */
-@keyframes popup{
-    from{
-        opacity:0;
-        transform: translateY(-20px) scale(.9);
-    }
-    to{
-        opacity:1;
-        transform: translateY(0) scale(1);
-    }
+
+/* ===========================
+   Button Click
+=========================== */
+
+.action-btn button:active {
+
+    transform: scale(.95);
+
 }
 
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
+
+/* ===========================
+   Table Header Icons
+=========================== */
+
+.table-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
 }
 
-@keyframes pulse{
-    0%,100%{
-        transform:scale(1);
+
+.header-icon {
+
+    font-size: 18px;
+
+    color: #dbeafe;
+
+    transition: .25s;
+
+}
+
+
+.students-table th:hover .header-icon {
+
+    transform: scale(1.15);
+
+    color: #fff;
+
+}
+
+
+/* ===========================
+   Pagination
+=========================== */
+
+.pagination-container {
+
+    /*
+     * Fixed height inside the
+     * students container.
+     */
+    flex: 0 0 70px;
+
+    width: 100%;
+
+    height: 70px;
+
+    padding: 0 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #fff;
+
+    border-top: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 -2px 8px rgba(0, 0, 0, 0.04);
+
+    position: relative;
+
+    z-index: 20;
+
+}
+
+
+/* ===========================
+   Pagination Info
+=========================== */
+
+.pagination-info {
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+
+}
+
+
+/* ===========================
+   Pagination Controls
+=========================== */
+
+.pagination-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+}
+
+
+/* ===========================
+   Pagination Buttons
+=========================== */
+
+.pagination-btn,
+.pagination-number {
+
+    width: 36px;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #4b5563;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+
+}
+
+
+/* ===========================
+   Previous / Next
+=========================== */
+
+.pagination-btn {
+
+    font-size: 25px;
+
+    line-height: 1;
+
+}
+
+
+/* ===========================
+   Hover
+=========================== */
+
+.pagination-btn:hover:not(:disabled),
+.pagination-number:hover:not(.active) {
+
+    background: #f3f4f6;
+
+    color: #111827;
+
+}
+
+
+/* ===========================
+   Active Page
+=========================== */
+
+.pagination-number.active {
+
+    background: #373635;
+
+    color: #fff;
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* ===========================
+   Disabled
+=========================== */
+
+.pagination-btn:disabled {
+
+    color: #c7c7c7;
+
+    cursor: not-allowed;
+
+}
+
+
+/* ===========================
+   Page Size
+=========================== */
+
+.page-size {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+
+}
+
+
+/* ===========================
+   Select
+=========================== */
+
+.page-size select {
+
+    height: 36px;
+
+    padding: 0 30px 0 10px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    background: #fff;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.page-size select:hover {
+
+    border-color: #9ca3af;
+
+}
+
+
+.page-size select:focus {
+
+    border-color: #373635;
+
+    box-shadow:
+        0 0 0 3px rgba(55, 54, 53, 0.08);
+
+}
+
+
+/* ===========================
+   Delete Popup Overlay
+=========================== */
+
+.st-del-popup-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(6px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 999;
+
+    animation: fadeIn .25s ease;
+
+}
+
+
+/* ===========================
+   Delete Popup
+=========================== */
+
+.st-delete-popup {
+
+    position: relative;
+
+    width: 420px;
+
+    max-width: 90%;
+
+    background: #fff;
+
+    border-radius: 24px;
+
+    padding: 35px 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, .18),
+        0 8px 20px rgba(0, 0, 0, .08);
+
+    animation:
+        popup .35s cubic-bezier(.22, 1, .36, 1);
+
+}
+
+
+/* ===========================
+   Close Button
+=========================== */
+
+.st-close-btn {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    width: 36px;
+
+    height: 36px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f3f4f6;
+
+    color: #555;
+
+    font-size: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.st-close-btn:hover {
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    transform: rotate(90deg);
+
+}
+
+
+/* ===========================
+   Delete Icon
+=========================== */
+
+.st-delete-icon {
+
+    width: 80px;
+
+    height: 80px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: #fdecec;
+
+    color: #dc2626;
+
+    font-size: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation: pulse 2s infinite;
+
+}
+
+
+.st-delete-popup h2 {
+
+    color: #7f1d1d;
+
+    margin-bottom: 12px;
+
+    font-size: 28px;
+
+}
+
+
+.st-delete-popup p {
+
+    color: #555;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+
+}
+
+
+.st-delete-popup strong {
+
+    color: #b91c1c;
+
+}
+
+
+.st-delete-popup strong span {
+
+    color: rgb(119, 117, 117);
+
+}
+
+
+/* ===========================
+   Warning
+=========================== */
+
+.st-warning {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 15px;
+
+    border-radius: 12px;
+
+    background: #fff7ed;
+
+    border: 1px solid #fed7aa;
+
+    color: #a13a11;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.st-warning span {
+
+    color: rgb(154, 1, 1);
+
+    font-size: 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 3px;
+
+}
+
+
+/* ===========================
+   Popup Buttons
+=========================== */
+
+.st-popup-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+}
+
+
+.st-popup-buttons button {
+
+    flex: 1;
+
+    border: none;
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+/* ===========================
+   Cancel
+=========================== */
+
+.st-cancel-btn {
+
+    background: #f3f4f6;
+
+    color: #374151;
+
+}
+
+
+.st-cancel-btn:hover {
+
+    background: #cfcfd2;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ===========================
+   Delete
+=========================== */
+
+.st-delete-btn {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: #fbdada;
+
+    color: rgb(163, 3, 3);
+
+}
+
+
+.st-delete-btn:hover {
+
+    background: #faabab;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 20px rgba(220, 38, 38, .35);
+
+}
+
+
+/* ===========================
+   Animations
+=========================== */
+
+@keyframes popup {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-20px)
+            scale(.9);
+
     }
-    50%{
-        transform:scale(1.08);
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
     }
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+    }
+
 }
